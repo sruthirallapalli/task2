@@ -1,0 +1,42 @@
+version: "3"
+services:
+  filters:
+    image: image1
+    ports: 
+      - "8081:80"
+    volumes:
+      - "filters-volume"
+    networks:
+      - "hello-network"
+
+
+  snaps:
+    image: image2
+    ports:
+      - "8082:80"
+    volumes:
+      - "snaps-volume"
+    networks:
+      - "hi-network"
+
+
+  streaks:
+    image: image3
+    ports:
+      - "8083:80"
+    volumes:
+      - "streaks-volume"
+    networks:
+      - "bye-network"
+
+networks:
+  hello-network:
+    driver: bridge
+
+  hi-network:
+    driver: bridge
+
+  bye-network:
+    driver: bridge
+
+
